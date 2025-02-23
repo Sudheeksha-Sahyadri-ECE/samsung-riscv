@@ -252,7 +252,7 @@ Analysing the Output Waveform of various instructions that we have covered in th
 
 1. ADD R6,R1,R2
 
-![ADD R6,R1,R2](<TASK4/add.png>)
+![ADD R6,R1,R2](<https://github.com/Sudheeksha-Sahyadri-ECE/samsung-riscv/blob/main/task%204/add.png?raw=true>)
 
   32 bit instruction:32'h02208300
 
