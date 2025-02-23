@@ -31,13 +31,15 @@ src="https://github.com/Sudheeksha-Sahyadri-ECE/samsung-riscv/blob/main/task1/ri
 <details>
 <summary>TASK2:Simulation with Spike</summary>
 <img 
-src="https://github.com/user-attachments/assets/3d4b94d7-228a-4194-bdac-4de226cb30d4" alt="Task Icon"/>
+src="https://github.com/Sudheeksha-Sahyadri-ECE/samsung-riscv/blob/main/task2/debugging%2001.png?raw=true" alt="Task Icon"/>
   <img
-src="https://github.com/user-attachments/assets/ca35703a-e970-4f79-8563-3136212948a3" alt="Task Icon"/>
+src="https://github.com/Sudheeksha-Sahyadri-ECE/samsung-riscv/blob/main/task2/debugging%20Ofast.png?raw=true" alt="Task Icon"/>
 <img
-src="https://github.com/user-attachments/assets/c932e8ef-bf9a-474b-a709-53bfc0aeee55" alt="Task Icon"/>
+src="https://github.com/Sudheeksha-Sahyadri-ECE/samsung-riscv/blob/main/task2/objdump%20O1.png?raw=true" alt="Task Icon"/>
 <img
-src="https://github.com/user-attachments/assets/6e18d0c5-f06c-4410-b013-d62eafa4aceb" alt="Task Icon"/>
+src="https://github.com/Sudheeksha-Sahyadri-ECE/samsung-riscv/blob/main/task2/objdump%20Ofast.png?raw=true" alt="Task Icon"/>
+<img
+src="https://github.com/Sudheeksha-Sahyadri-ECE/samsung-riscv/blob/main/task2/program%20for%20task2(prod%20of%201%20to%205).png?raw=true" alt="Task Icon"/>
 </details>
 
 <details>
