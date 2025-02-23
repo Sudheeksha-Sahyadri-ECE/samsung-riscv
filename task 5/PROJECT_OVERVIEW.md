@@ -1,7 +1,7 @@
-# **Ultrasonic Sensor-Based Object Detection with VSDSquadron Mini Board (3.3V)**
+# **Object Detection and Alert system with VSDSquadron Mini Board**
 
 ## **Project Name**
-**Ultrasonic Sensor-Based Object Detection with LED & Buzzer Alert Using VSDSquadron Mini Board**
+**Object Detection with LED & Buzzer Alert Using VSDSquadron Mini Board**
 
 ---
 
