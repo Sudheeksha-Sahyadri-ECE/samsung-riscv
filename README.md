@@ -14,28 +14,28 @@ LinkedIn: [Sudheeksha SK](https://www.linkedin.com/in/sudeeksha-s-b3a78626a?utm_
 <summary>TASK1:Development of C Based LAB</summary>
 
 
-##leafpad installation
+## leafpad installation
 <img
 src="https://github.com/Sudheeksha-Sahyadri-ECE/samsung-riscv/blob/main/task1/leafpad%20installation.png?raw=true3" alt="Task Icon"/>
 
 
-##c based lab output
+## c based lab output
 <img 
 src="https://github.com/Sudheeksha-Sahyadri-ECE/samsung-riscv/blob/main/task1/cbased%20lab%20output.png?raw=true" alt="Task Icon"/>
 
-##c based lab program
+## c based lab program
   <img
 src="https://github.com/Sudheeksha-Sahyadri-ECE/samsung-riscv/blob/main/task1/cbased%20lab%20program.png?raw=true" alt="Task Icon"/>
 
-##riscv based lab output(01)
+## riscv based lab output(01)
 <img
 src="https://github.com/Sudheeksha-Sahyadri-ECE/samsung-riscv/blob/main/task1/riscv%20based%20lab%20output(O1).png?raw=true" alt="Task Icon"/>
 
-##riscv based lab output(0fast)
+## riscv based lab output(0fast)
 <img
 src="https://github.com/Sudheeksha-Sahyadri-ECE/samsung-riscv/blob/main/task1/riscv%20based%20lab%20output(Ofast).png?raw=true" alt="Task Icon"/>
 
-##riscv based lab output
+## riscv based lab output
 <img
 src="https://github.com/Sudheeksha-Sahyadri-ECE/samsung-riscv/blob/main/task1/riscv%20based%20lab%20output.png?raw=true" alt="Task Icon"/>
 
@@ -43,22 +43,22 @@ src="https://github.com/Sudheeksha-Sahyadri-ECE/samsung-riscv/blob/main/task1/ri
 <details>
 <summary>TASK2:Simulation with Spike</summary>
   
-##program to calculate product of numbers 1 to 5
+## program to calculate product of numbers 1 to 5
 <img
 src="https://github.com/Sudheeksha-Sahyadri-ECE/samsung-riscv/blob/main/task2/program%20for%20task2(prod%20of%201%20to%205).png?raw=true" alt="Task Icon"/>
-##debugging of O1
+## debugging of O1
 <img 
 src="https://github.com/Sudheeksha-Sahyadri-ECE/samsung-riscv/blob/main/task2/debugging%2001.png?raw=true" alt="Task Icon"/>
 
-##debugging of Ofast
+## debugging of Ofast
   <img
 src="https://github.com/Sudheeksha-Sahyadri-ECE/samsung-riscv/blob/main/task2/debugging%20Ofast.png?raw=true" alt="Task Icon"/>
 
-##objdump of O1
+## objdump of O1
 <img
 src="https://github.com/Sudheeksha-Sahyadri-ECE/samsung-riscv/blob/main/task2/objdump%20O1.png?raw=true" alt="Task Icon"/>
 
-##objdump of Ofast
+## objdump of Ofast
 <img
 src="https://github.com/Sudheeksha-Sahyadri-ECE/samsung-riscv/blob/main/task2/objdump%20Ofast.png?raw=true" alt="Task Icon"/>
 
