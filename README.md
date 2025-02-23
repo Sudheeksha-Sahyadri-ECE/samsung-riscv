@@ -20,6 +20,13 @@ src="https://github.com/Sudheeksha-Sahyadri-ECE/samsung-riscv/blob/main/task1/cb
 src="https://github.com/Sudheeksha-Sahyadri-ECE/samsung-riscv/blob/main/task1/leafpad%20installation.png?raw=true3" alt="Task Icon"/>
 <img
 src="https://github.com/Sudheeksha-Sahyadri-ECE/samsung-riscv/blob/main/task1/riscv%20based%20lab%20output(O1).png?raw=true" alt="Task Icon"/>
+<img
+src="https://github.com/Sudheeksha-Sahyadri-ECE/samsung-riscv/blob/main/task1/riscv%20based%20lab%20output(Ofast).png?raw=true" alt="Task Icon"/>
+<img
+src="https://github.com/Sudheeksha-Sahyadri-ECE/samsung-riscv/blob/main/task1/riscv%20based%20lab%20output.png?raw=true" alt="Task Icon"/>
+<img
+src="https://github.com/Sudheeksha-Sahyadri-ECE/samsung-riscv/blob/main/task1/riscv%20based%20lab.png?raw=true" alt="Task Icon"/>
+
 </details>
 <details>
 <summary>TASK2:Simulation with Spike</summary>
