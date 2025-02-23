@@ -246,7 +246,7 @@ Install iverlog using commands:
 
 32-bits instruction used in the code:
 
-![Instructions](<TASK4/instructions.png>)
+![Instructions](<https://github.com/Sudheeksha-Sahyadri-ECE/samsung-riscv/blob/main/task%204/instruction.png?raw=true>)
 
 Analysing the Output Waveform of various instructions that we have covered in this task.
 
@@ -258,43 +258,43 @@ Analysing the Output Waveform of various instructions that we have covered in th
 
 2. SUB R7,R1,R2
 
-![SUB R7,R1,R2](<TASK4/sub1.png>)
+![SUB R7,R1,R2](<https://github.com/Sudheeksha-Sahyadri-ECE/samsung-riscv/blob/main/task%204/sub1.png?raw=true>)
 
 32 bit instruction:32'h02209380
 
 3. And R8,R1,R3
 
-![And R8,R1,R3](<TASK4/and.png>)
+![And R8,R1,R3](<https://github.com/Sudheeksha-Sahyadri-ECE/samsung-riscv/blob/main/task%204/and.png?raw=true>)
 
 32 bit instruction:32'h0230a400
 
 4. OR R9,R2,R5
 
-![OR R9,R2,R5](<TASK4/or.png>)
+![OR R9,R2,R5](<https://github.com/Sudheeksha-Sahyadri-ECE/samsung-riscv/blob/main/task%204/or.png?raw=true>)
 
 32 bit instruction:32'h02513480
 
 5. XOR R10,R1,R4
 
-![XOR R10,R1,R4](<TASK4/xor.png>)
+![XOR R10,R1,R4](<https://github.com/Sudheeksha-Sahyadri-ECE/samsung-riscv/blob/main/task%204/xor.png?raw=true>)
 
 32 bit instruction:32'h0240c500
 
 6. SLT R11,R2,R4
 
-![SLT R11,R2,R4](<TASK4/slt.png>)
+![SLT R11,R2,R4](<https://github.com/Sudheeksha-Sahyadri-ECE/samsung-riscv/blob/main/task%204/slt.png?raw=true>)
 
 32 bit instruction:32'h02415580
 
 7. ADDI R12,R4,5
 
-![ADDI R12,R4,5](<TASK4/addi.png>)
+![ADDI R12,R4,5](<https://github.com/Sudheeksha-Sahyadri-ECE/samsung-riscv/blob/main/task%204/addi.png?raw=true>)
 
 32 bit instruction:32'h00520600
 
 8. BEQ R0,R0,15
 
-![BEQ R0,R0,15](<TASK4/beq.png>)
+![BEQ R0,R0,15](<https://github.com/Sudheeksha-Sahyadri-ECE/samsung-riscv/blob/main/task%204/beq.png?raw=true>)
 
 32 bit instruction:32'h00f00002
 
