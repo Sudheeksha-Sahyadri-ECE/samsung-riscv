@@ -310,7 +310,7 @@ src="https://github.com/user-attachments/assets/0828d309-aa0c-45bc-8cce-038ce368
 
 2.Blinking Led Test code simulation.
 
-https://github.com/user-attachments/assets/c9d04c81-f2c8-463e-9b4c-9b2137d9df15
+https://github.com/Sudheeksha-Sahyadri-ECE/samsung-riscv/raw/refs/heads/main/task%205/blinking_led_test.mp4
 </details>
 
 <details>
