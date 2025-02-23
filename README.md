@@ -342,7 +342,7 @@ https://github.com/Sudheeksha-Sahyadri-ECE/samsung-riscv/raw/refs/heads/main/tas
 1.Object detection and Alert system Application video.
 
 https://github.com/Sudheeksha-Sahyadri-ECE/samsung-riscv/raw/refs/heads/main/task%206/working_video.mp4
-2.Obstacle-Avoiding Robot Code.
+2.Object detection and alert system Code.
 ```
 #include <vsdsquadron.h>  // Include VSDSquadron Mini Board hardware headers
 
