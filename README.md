@@ -299,3 +299,161 @@ Analysing the Output Waveform of various instructions that we have covered in th
 32 bit instruction:32'h00f00002
 
 </details>
+
+<details>
+<summary>TASK5:Project overview-circuit diagram</summary>
+</summary>
+1.Pinout Diagram of Obstacle-Avoiding Robot
+<img 
+src="https://github.com/user-attachments/assets/0828d309-aa0c-45bc-8cce-038ce368d9bf" alt="Task Icon"/>
+<img
+
+2.Blinking Led Test code simulation.
+
+https://github.com/user-attachments/assets/c9d04c81-f2c8-463e-9b4c-9b2137d9df15
+</details>
+
+<details>
+<summary>TASK6:Project Application</summary>
+</summary>
+1.Object detection and Alert system Application video.
+
+https://github.com/user-attachments/assets/11397a90-0576-4397-b83f-7a6ea71d9968
+
+2.Obstacle-Avoiding Robot Code.
+```
+#include <ch32v00x.h>
+#include <debug.h>
+
+// Define motor control pins
+#define IN1_PIN GPIO_Pin_1
+#define IN2_PIN GPIO_Pin_2
+#define IN3_PIN GPIO_Pin_4
+#define IN4_PIN GPIO_Pin_7
+#define ENA_PIN GPIO_Pin_5 // Assuming ENA is connected to PA0 (PWM), not necessary
+#define ENB_PIN GPIO_Pin_6 // Assuming ENB is connected to PA1 (PWM), not necessary
+
+// Define PIR sensor pin
+#define PIR_PIN GPIO_Pin_3
+
+void Motor_Init(void) {
+    GPIO_InitTypeDef GPIO_InitStructure = {0};
+
+    // Enable clocks for GPIO ports
+    
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOD | RCC_APB2Periph_GPIOA, ENABLE);
+
+    // Configure motor control pins as outputs
+    
+    GPIO_InitStructure.GPIO_Pin = IN1_PIN | IN2_PIN | IN3_PIN | IN4_PIN;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_Init(GPIOD, &GPIO_InitStructure);
+
+    // Configure ENA and ENB pins as alternate function (PWM output)
+    GPIO_InitStructure.GPIO_Pin = ENA_PIN | ENB_PIN;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_Init(GPIOA, &GPIO_InitStructure);
+
+    // Initialize PWM for ENA and ENB
+    // Assuming TIM2 is used for PWM on PA0 and PA1
+    RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);
+
+    TIM_TimeBaseInitTypeDef TIM_TimeBaseStructure = {0};
+    TIM_OCInitTypeDef TIM_OCInitStructure = {0};
+
+    TIM_TimeBaseStructure.TIM_Period = 999;
+    TIM_TimeBaseStructure.TIM_Prescaler = 47;
+    TIM_TimeBaseStructure.TIM_ClockDivision = TIM_CKD_DIV1;
+    TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
+    TIM_TimeBaseInit(TIM2, &TIM_TimeBaseStructure);
+
+    TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1;
+    TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
+    TIM_OCInitStructure.TIM_Pulse = 500; // 50% duty cycle
+    TIM_OC1Init(TIM2, &TIM_OCInitStructure);
+    TIM_OC2Init(TIM2, &TIM_OCInitStructure);
+
+    TIM_Cmd(TIM2, ENABLE);
+}
+
+void PIR_Init(void) {
+    GPIO_InitTypeDef GPIO_InitStructure = {0};
+
+    // Enable clock for GPIOD
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOD, ENABLE);
+
+    // Configure PIR sensor pin as input pull-up
+    GPIO_InitStructure.GPIO_Pin = PIR_PIN;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;
+    GPIO_Init(GPIOD, &GPIO_InitStructure);
+}
+
+void Move_Forward(void) {
+    GPIO_SetBits(GPIOD, IN1_PIN);
+    GPIO_ResetBits(GPIOD, IN2_PIN);
+    GPIO_SetBits(GPIOD, IN3_PIN);
+    GPIO_ResetBits(GPIOD, IN4_PIN);
+}
+
+void Move_Backward(void) {
+    GPIO_ResetBits(GPIOD, IN1_PIN);
+    GPIO_SetBits(GPIOD, IN2_PIN);
+    GPIO_ResetBits(GPIOD, IN3_PIN);
+    GPIO_SetBits(GPIOD, IN4_PIN);
+}
+
+void Turn_Left(void) {
+    GPIO_ResetBits(GPIOD, IN1_PIN);
+    GPIO_SetBits(GPIOD, IN2_PIN);
+    GPIO_SetBits(GPIOD, IN3_PIN);
+    GPIO_ResetBits(GPIOD, IN4_PIN);
+}
+
+void Turn_Right(void) {
+    GPIO_SetBits(GPIOD, IN1_PIN);
+    GPIO_ResetBits(GPIOD, IN2_PIN);
+    GPIO_ResetBits(GPIOD, IN3_PIN);
+    GPIO_SetBits(GPIOD, IN4_PIN);
+}
+
+void Stop(void) {
+    GPIO_ResetBits(GPIOD, IN1_PIN | IN2_PIN | IN3_PIN | IN4_PIN);
+}
+
+int main(void) {
+    SystemCoreClockUpdate();
+    Delay_Init();
+    Motor_Init();
+    PIR_Init();
+
+    while (1) {
+        uint8_t pir_status = GPIO_ReadInputDataBit(GPIOD, PIR_PIN);
+
+        if (pir_status == 0) {
+            // Obstacle detected
+            Stop();
+            Delay_Ms(500);
+            Move_Backward();
+            Delay_Ms(1000);
+            Turn_Left();
+            Delay_Ms(500);
+            Stop();
+            Delay_Ms(500);
+        } else {
+            // No obstacle
+            Move_Forward();
+        }
+
+        Delay_Ms(100);
+    }
+}
+
+void NMI_Handler(void) {
+}
+
+void HardFault_Handler(void) {
+    while (1) {
+    }
+}
