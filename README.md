@@ -13,7 +13,7 @@ LinkedIn: [Sudheeksha SK](https://www.linkedin.com/in/sudeeksha-s-b3a78626a?utm_
 <details>
 <summary>TASK1:Development of C Based LAB</summary>
 <img 
-src="https://github.com/user-attachments/assets/987c79c7-2625-4d94-bfee-caa7b83a0f86" alt="Task Icon"/>
+src="https://github.com/Sudheeksha-Sahyadri-ECE/samsung-riscv/blob/main/task1/cbased%20lab%20output.png?raw=true" alt="Task Icon"/>
   <img
 src="https://github.com/user-attachments/assets/7c267db8-2335-45b8-8d9b-0cce32154878" alt="Task Icon"/>
 <img
