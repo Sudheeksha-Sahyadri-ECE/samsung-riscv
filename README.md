@@ -15,11 +15,11 @@ LinkedIn: [Sudheeksha SK](https://www.linkedin.com/in/sudeeksha-s-b3a78626a?utm_
 <img 
 src="https://github.com/Sudheeksha-Sahyadri-ECE/samsung-riscv/blob/main/task1/cbased%20lab%20output.png?raw=true" alt="Task Icon"/>
   <img
-src="https://github.com/user-attachments/assets/7c267db8-2335-45b8-8d9b-0cce32154878" alt="Task Icon"/>
+src="https://github.com/Sudheeksha-Sahyadri-ECE/samsung-riscv/blob/main/task1/cbased%20lab%20program.png?raw=true" alt="Task Icon"/>
 <img
-src="https://github.com/user-attachments/assets/137dd367-5b26-44bf-90b4-cf600cbdb893" alt="Task Icon"/>
+src="https://github.com/Sudheeksha-Sahyadri-ECE/samsung-riscv/blob/main/task1/leafpad%20installation.png?raw=true3" alt="Task Icon"/>
 <img
-src="https://github.com/user-attachments/assets/529e2e98-6f3b-435d-95ed-dc0c0c8dd226" alt="Task Icon"/>
+src="https://github.com/Sudheeksha-Sahyadri-ECE/samsung-riscv/blob/main/task1/riscv%20based%20lab%20output(O1).png?raw=true" alt="Task Icon"/>
 </details>
 <details>
 <summary>TASK2:Simulation with Spike</summary>
