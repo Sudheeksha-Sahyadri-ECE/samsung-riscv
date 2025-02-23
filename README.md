@@ -12,6 +12,30 @@ LinkedIn: [Sudheeksha SK](https://www.linkedin.com/in/sudeeksha-s-b3a78626a?utm_
 -
 <details>
 <summary>TASK1:Development of C Based LAB</summary>
+
+## 1. Set Up Virtual Machine in VirtualBox  
+- Open **VirtualBox** and click **"New"** to create a virtual machine.  
+- Select **Linux (Ubuntu 18.04)** as the OS, allocate memory, and attach the **unzipped VDI file**.  
+- Click **Create** and then **Start** the VM.  
+
+## 2. Writing, Compiling, and Running a C Program on Ubuntu  
+
+### 2.1 Write a C Program (`sum1ton.c`)  
+Create a new file and write the following code:  
+
+```c
+#include <stdio.h>
+
+int main() {
+    int n, sum = 0;
+    printf("Enter a number: ");
+    scanf("%d", &n);
+    for (int i = 1; i <= n; i++) {
+        sum += i;
+    }
+    printf("Sum from 1 to %d is %d\n", n, sum);
+    return 0;
+}
 <img 
 src="https://github.com/Sudheeksha-Sahyadri-ECE/samsung-riscv/blob/main/task1/cbased%20lab%20output.png?raw=true" alt="Task Icon"/>
   <img
@@ -24,8 +48,6 @@ src="https://github.com/Sudheeksha-Sahyadri-ECE/samsung-riscv/blob/main/task1/ri
 src="https://github.com/Sudheeksha-Sahyadri-ECE/samsung-riscv/blob/main/task1/riscv%20based%20lab%20output(Ofast).png?raw=true" alt="Task Icon"/>
 <img
 src="https://github.com/Sudheeksha-Sahyadri-ECE/samsung-riscv/blob/main/task1/riscv%20based%20lab%20output.png?raw=true" alt="Task Icon"/>
-<img
-src="https://github.com/Sudheeksha-Sahyadri-ECE/samsung-riscv/blob/main/task1/riscv%20based%20lab.png?raw=true" alt="Task Icon"/>
 
 </details>
 <details>
@@ -318,142 +340,79 @@ https://github.com/Sudheeksha-Sahyadri-ECE/samsung-riscv/raw/refs/heads/main/tas
 </summary>
 1.Object detection and Alert system Application video.
 
-https://github.com/user-attachments/assets/11397a90-0576-4397-b83f-7a6ea71d9968
-
+https://github.com/Sudheeksha-Sahyadri-ECE/samsung-riscv/raw/refs/heads/main/task%206/working_video.mp4
 2.Obstacle-Avoiding Robot Code.
 ```
-#include <ch32v00x.h>
-#include <debug.h>
+#include <vsdsquadron.h>  // Include VSDSquadron Mini Board hardware headers
 
-// Define motor control pins
-#define IN1_PIN GPIO_Pin_1
-#define IN2_PIN GPIO_Pin_2
-#define IN3_PIN GPIO_Pin_4
-#define IN4_PIN GPIO_Pin_7
-#define ENA_PIN GPIO_Pin_5 // Assuming ENA is connected to PA0 (PWM), not necessary
-#define ENB_PIN GPIO_Pin_6 // Assuming ENB is connected to PA1 (PWM), not necessary
+#define TRIG_PIN  GPIO_Pin_0  // GPIO0 for Trigger
+#define ECHO_PIN  GPIO_Pin_1  // GPIO1 for Echo
+#define LED_PIN   GPIO_Pin_2  // GPIO2 for LED
+#define BUZZER_PIN GPIO_Pin_3 // GPIO3 for Buzzer
 
-// Define PIR sensor pin
-#define PIR_PIN GPIO_Pin_3
-
-void Motor_Init(void) {
-    GPIO_InitTypeDef GPIO_InitStructure = {0};
-
-    // Enable clocks for GPIO ports
-    
-    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOD | RCC_APB2Periph_GPIOA, ENABLE);
-
-    // Configure motor control pins as outputs
-    
-    GPIO_InitStructure.GPIO_Pin = IN1_PIN | IN2_PIN | IN3_PIN | IN4_PIN;
-    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
-    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-    GPIO_Init(GPIOD, &GPIO_InitStructure);
-
-    // Configure ENA and ENB pins as alternate function (PWM output)
-    GPIO_InitStructure.GPIO_Pin = ENA_PIN | ENB_PIN;
-    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
-    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-    GPIO_Init(GPIOA, &GPIO_InitStructure);
-
-    // Initialize PWM for ENA and ENB
-    // Assuming TIM2 is used for PWM on PA0 and PA1
-    RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);
-
-    TIM_TimeBaseInitTypeDef TIM_TimeBaseStructure = {0};
-    TIM_OCInitTypeDef TIM_OCInitStructure = {0};
-
-    TIM_TimeBaseStructure.TIM_Period = 999;
-    TIM_TimeBaseStructure.TIM_Prescaler = 47;
-    TIM_TimeBaseStructure.TIM_ClockDivision = TIM_CKD_DIV1;
-    TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
-    TIM_TimeBaseInit(TIM2, &TIM_TimeBaseStructure);
-
-    TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1;
-    TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
-    TIM_OCInitStructure.TIM_Pulse = 500; // 50% duty cycle
-    TIM_OC1Init(TIM2, &TIM_OCInitStructure);
-    TIM_OC2Init(TIM2, &TIM_OCInitStructure);
-
-    TIM_Cmd(TIM2, ENABLE);
-}
-
-void PIR_Init(void) {
-    GPIO_InitTypeDef GPIO_InitStructure = {0};
-
-    // Enable clock for GPIOD
-    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOD, ENABLE);
-
-    // Configure PIR sensor pin as input pull-up
-    GPIO_InitStructure.GPIO_Pin = PIR_PIN;
-    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;
-    GPIO_Init(GPIOD, &GPIO_InitStructure);
-}
-
-void Move_Forward(void) {
-    GPIO_SetBits(GPIOD, IN1_PIN);
-    GPIO_ResetBits(GPIOD, IN2_PIN);
-    GPIO_SetBits(GPIOD, IN3_PIN);
-    GPIO_ResetBits(GPIOD, IN4_PIN);
-}
-
-void Move_Backward(void) {
-    GPIO_ResetBits(GPIOD, IN1_PIN);
-    GPIO_SetBits(GPIOD, IN2_PIN);
-    GPIO_ResetBits(GPIOD, IN3_PIN);
-    GPIO_SetBits(GPIOD, IN4_PIN);
-}
-
-void Turn_Left(void) {
-    GPIO_ResetBits(GPIOD, IN1_PIN);
-    GPIO_SetBits(GPIOD, IN2_PIN);
-    GPIO_SetBits(GPIOD, IN3_PIN);
-    GPIO_ResetBits(GPIOD, IN4_PIN);
-}
-
-void Turn_Right(void) {
-    GPIO_SetBits(GPIOD, IN1_PIN);
-    GPIO_ResetBits(GPIOD, IN2_PIN);
-    GPIO_ResetBits(GPIOD, IN3_PIN);
-    GPIO_SetBits(GPIOD, IN4_PIN);
-}
-
-void Stop(void) {
-    GPIO_ResetBits(GPIOD, IN1_PIN | IN2_PIN | IN3_PIN | IN4_PIN);
-}
-
-int main(void) {
-    SystemCoreClockUpdate();
-    Delay_Init();
-    Motor_Init();
-    PIR_Init();
-
-    while (1) {
-        uint8_t pir_status = GPIO_ReadInputDataBit(GPIOD, PIR_PIN);
-
-        if (pir_status == 0) {
-            // Obstacle detected
-            Stop();
-            Delay_Ms(500);
-            Move_Backward();
-            Delay_Ms(1000);
-            Turn_Left();
-            Delay_Ms(500);
-            Stop();
-            Delay_Ms(500);
-        } else {
-            // No obstacle
-            Move_Forward();
-        }
-
-        Delay_Ms(100);
+void delay_us(uint32_t us) {
+    for (volatile uint32_t i = 0; i < us * 8; i++) {
+        __NOP();  // Small delay for microseconds
     }
 }
 
-void NMI_Handler(void) {
+void delay_ms(uint32_t ms) {
+    for (volatile uint32_t i = 0; i < ms * 8000; i++) {
+        __NOP();
+    }
 }
 
-void HardFault_Handler(void) {
+uint32_t measure_distance() {
+    uint32_t time_count = 0;
+
+    // Send 10µs pulse to TRIG pin
+    GPIO_SetBits(GPIO0, TRIG_PIN);
+    delay_us(10);
+    GPIO_ResetBits(GPIO0, TRIG_PIN);
+
+    // Wait for Echo Pin to go HIGH
+    while (!GPIO_ReadInputDataBit(GPIO1, ECHO_PIN));
+
+    // Start counting while Echo is HIGH
+    while (GPIO_ReadInputDataBit(GPIO1, ECHO_PIN)) {
+        time_count++;
+        delay_us(1);
+    }
+
+    // Convert time to distance (Speed of sound = 343m/s)
+    return (time_count * 0.0343) / 2;  // Distance in cm
+}
+
+int main(void) {
+    SystemInit();  // Initialize system clock
+
+    // Enable GPIO Clock
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIO, ENABLE);
+
+    // Configure TRIG, LED, and BUZZER as output
+    GPIO_InitTypeDef GPIO_InitStruct;
+    GPIO_InitStruct.GPIO_Pin = TRIG_PIN | LED_PIN | BUZZER_PIN;
+    GPIO_InitStruct.GPIO_Mode = GPIO_Mode_Out_PP;
+    GPIO_InitStruct.GPIO_Speed = GPIO_Speed_10MHz;
+    GPIO_Init(GPIO0, &GPIO_InitStruct);
+
+    // Configure ECHO as input
+    GPIO_InitStruct.GPIO_Pin = ECHO_PIN;
+    GPIO_InitStruct.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+    GPIO_Init(GPIO1, &GPIO_InitStruct);
+
     while (1) {
+        uint32_t distance = measure_distance();
+
+        // If distance is less than 10 cm, turn LED and Buzzer ON
+        if (distance < 10) {
+            GPIO_SetBits(GPIO2, LED_PIN);
+            GPIO_SetBits(GPIO3, BUZZER_PIN);
+        } else {
+            GPIO_ResetBits(GPIO2, LED_PIN);
+            GPIO_ResetBits(GPIO3, BUZZER_PIN);
+        }
+
+        delay_ms(500);  // Delay to avoid continuous measurements
     }
 }
