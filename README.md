@@ -305,7 +305,7 @@ Analysing the Output Waveform of various instructions that we have covered in th
 </summary>
 1.Pinout Diagram of Obstacle-Avoiding Robot
 <img 
-src="https://github.com/user-attachments/assets/0828d309-aa0c-45bc-8cce-038ce368d9bf" alt="Task Icon"/>
+src="https://github.com/Sudheeksha-Sahyadri-ECE/samsung-riscv/blob/main/task%205/object_derection_and_alert_system.jpg?raw=true" alt="Task Icon"/>
 <img
 
 2.Blinking Led Test code simulation.
