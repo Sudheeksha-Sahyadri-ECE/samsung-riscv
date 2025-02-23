@@ -326,7 +326,7 @@ Analysing the Output Waveform of various instructions that we have covered in th
 <details>
 <summary>TASK5:Project overview-circuit diagram</summary>
 </summary>
-1.Pinout Diagram of Obstacle-Avoiding Robot
+1.Pinout Diagram of Object detection and alert system
 <img 
 src="https://github.com/Sudheeksha-Sahyadri-ECE/samsung-riscv/blob/main/task%205/object_derection_and_alert_system.jpg?raw=true" alt="Task Icon"/>
 <img
