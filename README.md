@@ -13,29 +13,6 @@ LinkedIn: [Sudheeksha SK](https://www.linkedin.com/in/sudeeksha-s-b3a78626a?utm_
 <details>
 <summary>TASK1:Development of C Based LAB</summary>
 
-## 1. Set Up Virtual Machine in VirtualBox  
-- Open **VirtualBox** and click **"New"** to create a virtual machine.  
-- Select **Linux (Ubuntu 18.04)** as the OS, allocate memory, and attach the **unzipped VDI file**.  
-- Click **Create** and then **Start** the VM.  
-
-## 2. Writing, Compiling, and Running a C Program on Ubuntu  
-
-### 2.1 Write a C Program (`sum1ton.c`)  
-Create a new file and write the following code:  
-
-```c
-#include <stdio.h>
-
-int main() {
-    int n, sum = 0;
-    printf("Enter a number: ");
-    scanf("%d", &n);
-    for (int i = 1; i <= n; i++) {
-        sum += i;
-    }
-    printf("Sum from 1 to %d is %d\n", n, sum);
-    return 0;
-}
 <img 
 src="https://github.com/Sudheeksha-Sahyadri-ECE/samsung-riscv/blob/main/task1/cbased%20lab%20output.png?raw=true" alt="Task Icon"/>
   <img
